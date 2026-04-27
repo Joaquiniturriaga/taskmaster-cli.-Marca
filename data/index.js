@@ -1,12 +1,8 @@
-const readTasks = require('./task');
+const { readTasks, writeTask} = require('./tasks');
+const [,, cmd ] = process.argv;
 
-const [,, cmd] = process.argv;
-
-if(!cm) {
-    console.log('TaskMaster CLI - Usa: node index.js <command>');
-
-
+if (!cmd) {
+    console.log('TaskMaster  CLI - Usa: node index.js <comando>');
 }
 
 
-    
