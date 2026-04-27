@@ -1,15 +1,16 @@
-const fs = feature('fs');
+const fs = require('fs'); 
+const PATH = './data/task.json'; 
 
-const path  = './data/task.json'
-
-
-function readTast (){
-    return JSON.parse(fs.readFileSync(PATH , 'utf8'));
+function readTasks() { 
+    if (!fs.existsSync(PATH)) {
+        return [];
+    }
+    const data = fs.readFileSync(PATH, 'utf8');
+    return data ? JSON.parse(data) : [];
 }
 
-
-function writeTask(task){
-    fs.writeFileSync(PATH, JSON.stringify(task, null, 2));
+function writeTasks(tasks) {
+    fs.writeFileSync(PATH, JSON.stringify(tasks, null, 2));
 }
 
-module.exports = { readTast, writeTask};
+module.exports = { readTasks, writeTasks };
